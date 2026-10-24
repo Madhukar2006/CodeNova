@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeNova — Coding &amp; Project Management for Android</title>
+  <meta name="description" content="CodeNova is an Android application for writing, organizing, and managing your coding projects — all from your mobile device." />
+
+  <!-- Social / Open Graph -->
+  <meta property="og:title"       content="CodeNova — Coding &amp; Project Management for Android" />
+  <meta property="og:description" content="Write, organize, and manage your coding projects on Android." />
+  <meta property="og:type"        content="website" />
+
+  <!-- Favicon (inline SVG → data URI, no file required) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233b82f6'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='700' font-size='16' fill='white'>CN</text></svg>" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- ======================================================
+       NAVIGATION
+       ====================================================== -->
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="CodeNova home">
+        <span class="logo-icon" aria-hidden="true">CN</span>
+        <span class="logo-text">Code<span>Nova</span></span>
+      </a>
+
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-controls="nav-links"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span></span><span></span><span></span>
+      </button>
+
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ======================================================
+         HERO
+         ====================================================== -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <div class="hero-badge">Android Application</div>
+        <h1 id="hero-heading">Code smarter.<br /><span class="text-accent">Build anywhere.</span></h1>
+        <p class="hero-desc">
+          CodeNova is a mobile coding and project-management application for Android.
+          Write code, structure your projects, and stay organized — directly from your device.
+        </p>
+        <div class="hero-actions">
+          <a href="about.html" class="btn btn-primary">Learn More</a>
+          <!-- Download button is shown only when APP_DOWNLOAD_URL is configured in script.js -->
+          <a href="#" class="btn btn-outline" id="download-btn" style="display:none" target="_blank" rel="noopener">
+            Get on Google Play
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ======================================================
+         FEATURES
+         ====================================================== -->
+    <section class="section" aria-labelledby="features-heading">
+      <div class="container">
+        <span class="section-label">Features</span>
+        <h2 class="section-title" id="features-heading">Everything you need to code on the go</h2>
+        <p class="section-subtitle">
+          CodeNova brings a focused coding environment and project-organization tools to your Android device.
+        </p>
+
+        <div class="features-grid">
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">📁</div>
+            <h3>Project Organization</h3>
+            <p>Keep your coding projects structured and accessible with a clean, file-based project manager.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">✏️</div>
+            <h3>Code Editor</h3>
+            <p>Write and edit source code with a mobile-friendly editor designed for comfortable on-screen input.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">📂</div>
+            <h3>File Management</h3>
+            <p>Create, rename, and organize files within your projects — all without leaving the app.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">📱</div>
+            <h3>Built for Android</h3>
+            <p>Designed from the ground up for mobile use — optimized for touch interaction and smaller screens.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">⚡</div>
+            <h3>Lightweight &amp; Fast</h3>
+            <p>A focused toolset keeps the app lean so it runs smoothly even on mid-range Android devices.</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">🔒</div>
+            <h3>Your Files, Your Control</h3>
+            <p>Work with project files stored on your device. Review our <a href="privacy-policy.html">Privacy Policy</a> for full details.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <hr class="divider" />
+
+    <!-- ======================================================
+         CTA STRIP
+         ====================================================== -->
+    <section class="section--sm" aria-label="Call to action">
+      <div class="container text-center">
+        <h2>Ready to learn more?</h2>
+        <p style="margin-block: 0.75rem 1.5rem; color: var(--text-body);">
+          Read about the project, check our privacy commitments, or get in touch.
+        </p>
+        <div class="hero-actions">
+          <a href="about.html"           class="btn btn-primary">About CodeNova</a>
+          <a href="privacy-policy.html"  class="btn btn-outline">Privacy Policy</a>
+          <a href="contact.html"         class="btn btn-outline">Contact</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================
+       FOOTER
+       ====================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">
+          <span class="logo-icon" aria-hidden="true">CN</span>
+          CodeNova
+        </a>
+
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+        </ul>
+
+        <p class="footer-copy">
+          &copy; <span id="copyright-year">2024</span> CodeNova. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>

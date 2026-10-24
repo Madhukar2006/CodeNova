@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — CodeNova</title>
+  <meta name="description" content="Contact the CodeNova developer with questions, feedback, or support requests." />
+
+  <meta property="og:title"       content="Contact — CodeNova" />
+  <meta property="og:description" content="Get in touch with the CodeNova development team." />
+  <meta property="og:type"        content="website" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233b82f6'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='700' font-size='16' fill='white'>CN</text></svg>" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" aria-label="CodeNova home">
+        <span class="logo-icon" aria-hidden="true">CN</span>
+        <span class="logo-text">Code<span>Nova</span></span>
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links" role="list">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="privacy-policy.html">Privacy</a></li>
+        <li><a href="terms.html">Terms</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <header class="page-header">
+      <div class="container">
+        <h1>Contact</h1>
+        <p>Have a question, found a bug, or want to share feedback? We would love to hear from you.</p>
+      </div>
+    </header>
+
+    <section class="section" aria-label="Contact information">
+      <div class="container">
+
+        <div class="contact-card">
+          <h2 style="margin-bottom:0.75rem; font-size:1.15rem;">Get in Touch</h2>
+
+          <p>
+            The best way to reach the CodeNova developer is by email.
+            Tap the button below to open your email app with the address pre-filled.
+          </p>
+
+          <p class="text-sm" style="color:var(--text-muted); margin-bottom:1.25rem;">
+            Contact email:
+            <strong style="color:var(--text-body); font-family:var(--font-mono)" id="contact-email-display"></strong>
+          </p>
+
+          <!-- Shown only when CONTACT_EMAIL is configured in assets/js/script.js -->
+          <a
+            href="#"
+            class="btn btn-primary"
+            id="contact-email-btn"
+            style="display:none"
+            aria-label="Send email to CodeNova developer"
+          >
+            ✉ Send an Email
+          </a>
+
+          <!-- Shown when CONTACT_EMAIL is NOT configured -->
+          <div class="contact-no-email" id="contact-no-email" style="display:none" role="status">
+            <strong>Developer action required:</strong> A contact email address has not been
+            configured yet. Open <code>assets/js/script.js</code> and set
+            <code>CONTACT_EMAIL</code> to your real email address to enable this button.
+          </div>
+
+        </div>
+
+        <!-- Noscript fallback -->
+        <noscript>
+          <div class="contact-card" style="margin-top:1rem;">
+            <p>
+              JavaScript is disabled. To contact the CodeNova developer, please check
+              the <a href="about.html">About page</a> for any available contact details,
+              or configure a visible email address in your website files.
+            </p>
+          </div>
+        </noscript>
+
+        <div class="prose" style="margin-top: 2.5rem; max-width: 520px;">
+          <h2 style="margin-top:0">What to include</h2>
+          <ul>
+            <li>Your Android version and device model, if reporting a bug.</li>
+            <li>A clear description of the issue or question.</li>
+            <li>Steps to reproduce any unexpected behaviour.</li>
+          </ul>
+
+          <p class="text-sm" style="margin-top:1.5rem;">
+            By contacting us you acknowledge our
+            <a href="privacy-policy.html">Privacy Policy</a> and
+            <a href="terms.html">Terms &amp; Conditions</a>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="index.html" class="footer-logo">
+          <span class="logo-icon" aria-hidden="true">CN</span>
+          CodeNova
+        </a>
+        <ul class="footer-links">
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms &amp; Conditions</a></li>
+        </ul>
+        <p class="footer-copy">&copy; <span id="copyright-year">2024</span> CodeNova. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
