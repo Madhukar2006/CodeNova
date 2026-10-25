@@ -1,159 +1,449 @@
-/**
- * CodeNova Website — Central Configuration & Utilities
- * =====================================================
- * EDIT THIS SECTION to configure your website.
- * All configurable values are in the CONFIG object below.
- */
+```javascript
+/* =========================================
+   POCKET COMPILER
+   Website JavaScript
+   File: assets/js/script.js
+========================================= */
 
-const CONFIG = {
-  // -------------------------------------------------------
-  // Site identity
-  // -------------------------------------------------------
-  SITE_NAME: "CodeNova",
+"use strict";
 
-  // -------------------------------------------------------
-  // Contact email
-  // Set to your real email address before publishing.
-  // Leave empty ("") to hide the email button gracefully.
-  // Example: "hello@example.com"
-  // -------------------------------------------------------
-  CONTACT_EMAIL: "",
+/* 1. Helper Functions */
 
-  // -------------------------------------------------------
-  // App download / Play Store URL
-  // Set to your Google Play Store URL when the app is live.
-  // Leave empty ("") to hide the download button gracefully.
-  // Example: "https://play.google.com/store/apps/details?id=com.yourcompany.codenova"
-  // -------------------------------------------------------
-  APP_DOWNLOAD_URL: "",
+const select = (selector, parent = document) =>
+    parent.querySelector(selector);
 
-  // -------------------------------------------------------
-  // Internal page paths (relative — do NOT use leading /)
-  // These work correctly on GitHub Pages project sub-URLs
-  // e.g. https://USERNAME.github.io/CodeNova-Web/
-  // -------------------------------------------------------
-  PRIVACY_POLICY_PATH: "privacy-policy.html",
-  TERMS_PATH:          "terms.html",
-  ABOUT_PATH:          "about.html",
-  CONTACT_PATH:        "contact.html",
-  HOME_PATH:           "index.html",
-};
+const selectAll = (selector, parent = document) =>
+    Array.from(parent.querySelectorAll(selector));
 
-/* =========================================================
-   Navigation helpers
-   ========================================================= */
 
-/**
- * Marks the current page's nav link with aria-current="page".
- * Works with relative paths on GitHub Pages sub-directories.
- */
-function markCurrentNavLink() {
-  const path = window.location.pathname;
-  const filename = path.split("/").filter(Boolean).pop() || "index.html";
+/* 2. Mobile Navigation */
 
-  document.querySelectorAll(".nav-links a, .site-footer a").forEach((link) => {
-    const href = link.getAttribute("href");
-    if (!href) return;
-    const hrefFile = href.split("/").filter(Boolean).pop() || "index.html";
+function initMobileNavigation() {
+    const menuToggle = select(".menu-toggle");
+    const navMenu = select(".nav-menu");
 
-    // Treat root path as index.html
-    const isCurrent =
-      hrefFile === filename ||
-      (filename === "" && hrefFile === "index.html") ||
-      (filename === "index.html" && hrefFile === "index.html");
+    if (!menuToggle || !navMenu) return;
 
-    if (isCurrent && link.closest(".nav-links")) {
-      link.setAttribute("aria-current", "page");
+    function closeMenu() {
+        navMenu.classList.remove("is-open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.setAttribute("aria-label", "Open navigation menu");
+
+        document.body.classList.remove("menu-open");
     }
-  });
-}
 
-/* =========================================================
-   Mobile navigation toggle
-   ========================================================= */
-function initMobileNav() {
-  const toggle = document.getElementById("nav-toggle");
-  const menu   = document.getElementById("nav-links");
-  if (!toggle || !menu) return;
+    function openMenu() {
+        navMenu.classList.add("is-open");
+        menuToggle.setAttribute("aria-expanded", "true");
+        menuToggle.setAttribute("aria-label", "Close navigation menu");
 
-  toggle.addEventListener("click", () => {
-    const isOpen = menu.classList.toggle("is-open");
-    toggle.setAttribute("aria-expanded", isOpen.toString());
-  });
+        document.body.classList.add("menu-open");
+    }
 
-  // Close menu when a link is tapped
-  menu.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      menu.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
+    menuToggle.addEventListener("click", () => {
+        const isOpen =
+            menuToggle.getAttribute("aria-expanded") === "true";
+
+        if (isOpen) {
+            closeMenu();
+        } else {
+            openMenu();
+        }
     });
-  });
 
-  // Close on outside click
-  document.addEventListener("click", (e) => {
-    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
-      menu.classList.remove("is-open");
-      toggle.setAttribute("aria-expanded", "false");
+    // Close the menu after selecting a navigation link.
+    selectAll("a", navMenu).forEach((link) => {
+        link.addEventListener("click", closeMenu);
+    });
+
+    // Close the menu when clicking outside it.
+    document.addEventListener("click", (event) => {
+        const clickedInsideMenu = navMenu.contains(event.target);
+        const clickedToggle = menuToggle.contains(event.target);
+
+        if (!clickedInsideMenu && !clickedToggle) {
+            closeMenu();
+        }
+    });
+
+    // Support the Escape key.
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") {
+            closeMenu();
+            menuToggle.focus();
+        }
+    });
+
+    // Reset navigation when returning to desktop layout.
+    window.addEventListener("resize", () => {
+        if (window.innerWidth > 760) {
+            closeMenu();
+        }
+    });
+}
+
+
+/* 3. Active Navigation Link */
+
+function initActiveNavigation() {
+    const currentPage =
+        window.location.pathname.split("/").pop() || "index.html";
+
+    selectAll(".nav-link, .footer-links a, .footer-legal-links a")
+        .forEach((link) => {
+            const href = link.getAttribute("href");
+
+            if (!href) return;
+
+            try {
+                const linkUrl = new URL(href, window.location.href);
+
+                const linkPage =
+                    linkUrl.pathname.split("/").pop() || "index.html";
+
+                if (
+                    linkUrl.origin === window.location.origin &&
+                    linkPage === currentPage
+                ) {
+                    if (link.classList.contains("nav-link")) {
+                        link.setAttribute("aria-current", "page");
+                    }
+                }
+            } catch (error) {
+                console.warn(
+                    "Could not process navigation link:",
+                    href
+                );
+            }
+        });
+}
+
+
+/* 4. Dynamic Copyright Year */
+
+function initCopyrightYear() {
+    selectAll("[data-current-year]").forEach((element) => {
+        element.textContent = new Date().getFullYear();
+    });
+}
+
+
+/* 5. FAQ Accordion */
+
+function initFaqAccordion() {
+    const questions = selectAll(".faq-question");
+
+    questions.forEach((question) => {
+        const answerId = question.getAttribute("aria-controls");
+
+        const answer = answerId
+            ? document.getElementById(answerId)
+            : question.nextElementSibling;
+
+        if (!answer) return;
+
+        // Set the initial state.
+        const initiallyExpanded =
+            question.getAttribute("aria-expanded") === "true";
+
+        question.setAttribute(
+            "aria-expanded",
+            String(initiallyExpanded)
+        );
+
+        answer.hidden = !initiallyExpanded;
+
+        question.addEventListener("click", () => {
+            const isExpanded =
+                question.getAttribute("aria-expanded") === "true";
+
+            // Close other questions in the same accordion.
+            const accordion = question.closest(".faq-list");
+
+            if (accordion) {
+                selectAll(".faq-question", accordion).forEach(
+                    (otherQuestion) => {
+                        if (otherQuestion === question) return;
+
+                        const otherAnswerId =
+                            otherQuestion.getAttribute("aria-controls");
+
+                        const otherAnswer = otherAnswerId
+                            ? document.getElementById(otherAnswerId)
+                            : otherQuestion.nextElementSibling;
+
+                        otherQuestion.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        if (otherAnswer) {
+                            otherAnswer.hidden = true;
+                        }
+                    }
+                );
+            }
+
+            question.setAttribute(
+                "aria-expanded",
+                String(!isExpanded)
+            );
+
+            answer.hidden = isExpanded;
+        });
+    });
+}
+
+
+/* 6. Contact Form Validation */
+
+function initContactForm() {
+    const form = select("#contact-form");
+
+    if (!form) return;
+
+    const status = select("#form-status", form);
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (status) {
+            status.textContent = "";
+            status.className = "";
+        }
+
+        // Use built-in browser validation.
+        if (!form.checkValidity()) {
+            form.reportValidity();
+            return;
+        }
+
+        const nameInput = select('[name="name"]', form);
+        const emailInput = select('[name="email"]', form);
+        const messageInput = select('[name="message"]', form);
+
+        const name = nameInput?.value.trim() || "";
+        const email = emailInput?.value.trim() || "";
+        const message = messageInput?.value.trim() || "";
+
+        if (!name || !email || !message) {
+            showFormStatus(
+                status,
+                "Please complete all required fields.",
+                "error"
+            );
+
+            return;
+        }
+
+        if (!isValidEmail(email)) {
+            showFormStatus(
+                status,
+                "Please enter a valid email address.",
+                "error"
+            );
+
+            emailInput?.focus();
+            return;
+        }
+
+        /*
+         * IMPORTANT:
+         * Frontend validation does not send messages.
+         *
+         * Connect this form to a real, configured backend
+         * or form service before publishing it.
+         *
+         * Until then, offer a mailto fallback only when a
+         * real support email has been configured.
+         */
+
+        const supportEmail =
+            form.dataset.supportEmail?.trim() || "";
+
+        if (
+            supportEmail &&
+            isValidEmail(supportEmail) &&
+            !supportEmail.includes("example.com")
+        ) {
+            const subject = encodeURIComponent(
+                `Pocket Compiler Support: ${name}`
+            );
+
+            const body = encodeURIComponent(
+                `Name: ${name}\n` +
+                `Email: ${email}\n\n` +
+                `Message:\n${message}`
+            );
+
+            const mailtoUrl =
+                `mailto:${supportEmail}` +
+                `?subject=${subject}&body=${body}`;
+
+            window.location.href = mailtoUrl;
+
+            showFormStatus(
+                status,
+                "Your email application should open. Please review and send your message there.",
+                "success"
+            );
+
+            return;
+        }
+
+        showFormStatus(
+            status,
+            "The form is not connected yet. Please configure a real support email or connect a form service before publishing.",
+            "error"
+        );
+    });
+}
+
+function isValidEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+function showFormStatus(status, message, type) {
+    if (!status) {
+        window.alert(message);
+        return;
     }
-  });
+
+    status.textContent = message;
+    status.className =
+        type === "success" ? "form-success" : "form-error";
+
+    status.setAttribute("role", "status");
+    status.setAttribute("aria-live", "polite");
 }
 
-/* =========================================================
-   Contact page — email button
-   ========================================================= */
-function initContactEmail() {
-  const btn         = document.getElementById("contact-email-btn");
-  const noEmailMsg  = document.getElementById("contact-no-email");
-  const emailDisplay = document.getElementById("contact-email-display");
 
-  if (!btn && !noEmailMsg) return; // not on contact page
+/* 7. Back to Top */
 
-  if (CONFIG.CONTACT_EMAIL) {
-    // Show the button with a real mailto link
-    if (btn) {
-      btn.setAttribute("href", "mailto:" + CONFIG.CONTACT_EMAIL);
-      btn.style.display = "inline-flex";
-    }
-    if (noEmailMsg)   noEmailMsg.style.display = "none";
-    if (emailDisplay) emailDisplay.textContent  = CONFIG.CONTACT_EMAIL;
-  } else {
-    // No email configured — show the notice, hide the button
-    if (btn)          btn.style.display   = "none";
-    if (noEmailMsg)   noEmailMsg.style.display = "block";
-    if (emailDisplay) emailDisplay.textContent  = "[not configured]";
-  }
+function initBackToTop() {
+    const button = select("[data-back-to-top]");
+
+    if (!button) return;
+
+    button.addEventListener("click", () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
 }
 
-/* =========================================================
-   Download button — hide gracefully if URL not set
-   ========================================================= */
-function initDownloadButton() {
-  const btn = document.getElementById("download-btn");
-  if (!btn) return;
 
-  if (CONFIG.APP_DOWNLOAD_URL) {
-    btn.setAttribute("href", CONFIG.APP_DOWNLOAD_URL);
-    btn.style.display = "inline-flex";
-  } else {
-    btn.style.display = "none";
-  }
+/* 8. External Links Safety */
+
+function initExternalLinks() {
+    selectAll('a[target="_blank"]').forEach((link) => {
+        const relValues = new Set(
+            (link.getAttribute("rel") || "")
+                .split(/\s+/)
+                .filter(Boolean)
+        );
+
+        relValues.add("noopener");
+        relValues.add("noreferrer");
+
+        link.setAttribute("rel", [...relValues].join(" "));
+    });
 }
 
-/* =========================================================
-   Footer — update copyright year dynamically
-   ========================================================= */
-function updateCopyrightYear() {
-  const el = document.getElementById("copyright-year");
-  if (el) el.textContent = new Date().getFullYear();
+
+/* 9. Code Tabs */
+
+function initCodeTabs() {
+    const tabGroups = selectAll("[data-code-tabs]");
+
+    tabGroups.forEach((group) => {
+        const tabs = selectAll(".code-tab", group);
+        const panels = selectAll("[data-code-panel]", group);
+
+        if (!tabs.length || !panels.length) return;
+
+        function activateTab(tab) {
+            const target = tab.dataset.codeTarget;
+
+            tabs.forEach((item) => {
+                const active = item === tab;
+
+                item.classList.toggle("active", active);
+                item.setAttribute(
+                    "aria-selected",
+                    String(active)
+                );
+
+                item.setAttribute(
+                    "tabindex",
+                    active ? "0" : "-1"
+                );
+            });
+
+            panels.forEach((panel) => {
+                panel.hidden =
+                    panel.dataset.codePanel !== target;
+            });
+        }
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener("click", () => {
+                activateTab(tab);
+            });
+
+            tab.addEventListener("keydown", (event) => {
+                let nextIndex = index;
+
+                if (event.key === "ArrowRight") {
+                    nextIndex = (index + 1) % tabs.length;
+                } else if (event.key === "ArrowLeft") {
+                    nextIndex =
+                        (index - 1 + tabs.length) % tabs.length;
+                } else if (event.key === "Home") {
+                    nextIndex = 0;
+                } else if (event.key === "End") {
+                    nextIndex = tabs.length - 1;
+                } else {
+                    return;
+                }
+
+                event.preventDefault();
+
+                tabs[nextIndex].focus();
+                activateTab(tabs[nextIndex]);
+            });
+        });
+
+        const initialTab =
+            tabs.find((tab) => tab.classList.contains("active")) ||
+            tabs[0];
+
+        activateTab(initialTab);
+    });
 }
 
-/* =========================================================
-   Init — run after DOM is ready
-   ========================================================= */
-document.addEventListener("DOMContentLoaded", () => {
-  try { markCurrentNavLink();   } catch (e) { /* non-fatal */ }
-  try { initMobileNav();        } catch (e) { /* non-fatal */ }
-  try { initContactEmail();     } catch (e) { /* non-fatal */ }
-  try { initDownloadButton();   } catch (e) { /* non-fatal */ }
-  try { updateCopyrightYear();  } catch (e) { /* non-fatal */ }
-});
+
+/* 10. Initialize Website */
+
+function initWebsite() {
+    initMobileNavigation();
+    initActiveNavigation();
+    initCopyrightYear();
+    initFaqAccordion();
+    initContactForm();
+    initBackToTop();
+    initExternalLinks();
+    initCodeTabs();
+}
+
+if (document.readyState === "loading") {
+    document.addEventListener(
+        "DOMContentLoaded",
+        initWebsite,
+        { once: true }
+    );
+} else {
+    initWebsite();
+}
+```
