@@ -1,182 +1,813 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CodeNova — Coding &amp; Project Management for Android</title>
-  <meta name="description" content="CodeNova is an Android application for writing, organizing, and managing your coding projects — all from your mobile device." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Social / Open Graph -->
-  <meta property="og:title"       content="CodeNova — Coding &amp; Project Management for Android" />
-  <meta property="og:description" content="Write, organize, and manage your coding projects on Android." />
-  <meta property="og:type"        content="website" />
+    <title>Pocket Compiler | Coding Tools in Your Pocket</title>
 
-  <!-- Favicon (inline SVG → data URI, no file required) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233b82f6'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='700' font-size='16' fill='white'>CN</text></svg>" />
+    <meta name="description"
+          content="Discover Pocket Compiler, a coding companion designed to make programming more accessible. Explore app features, support, and important information.">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
+    <meta name="theme-color" content="#ffffff">
+    <meta name="robots" content="index, follow">
 
-  <link rel="stylesheet" href="assets/css/style.css" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pocket Compiler | Coding Tools in Your Pocket">
+    <meta property="og:description"
+          content="Explore Pocket Compiler, your coding companion. Discover features, app information, and support.">
+
+    <!-- Replace YOUR-DOMAIN with your actual domain before publishing. -->
+    <link rel="canonical" href="https://YOUR-DOMAIN/">
+
+    <link rel="icon" href="assets/images/favicon.png" type="image/png">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <script src="assets/js/script.js" defer></script>
 </head>
+
 <body>
 
-  <!-- ======================================================
-       NAVIGATION
-       ====================================================== -->
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="CodeNova home">
-        <span class="logo-icon" aria-hidden="true">CN</span>
-        <span class="logo-text">Code<span>Nova</span></span>
-      </a>
+    <!-- Header -->
+    <header class="site-header">
+        <div class="container nav-container">
 
-      <button
-        class="nav-toggle"
-        id="nav-toggle"
-        aria-controls="nav-links"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span></span><span></span><span></span>
-      </button>
+            <a class="brand" href="index.html" aria-label="Pocket Compiler home">
+                <span class="brand-logo" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"
+                         stroke="currentColor" stroke-width="2"
+                         stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m8 5-7 7 7 7"/>
+                        <path d="m16 5 7 7-7 7"/>
+                        <path d="m14 3-4 18"/>
+                    </svg>
+                </span>
 
-      <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy-policy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-      </ul>
-    </div>
-  </nav>
+                <span class="brand-text">
+                    Pocket Compiler
+                    <small>Your coding companion</small>
+                </span>
+            </a>
 
-  <main>
+            <button
+                class="menu-toggle"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="main-navigation">
 
-    <!-- ======================================================
-         HERO
-         ====================================================== -->
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="container">
-        <div class="hero-badge">Android Application</div>
-        <h1 id="hero-heading">Code smarter.<br /><span class="text-accent">Build anywhere.</span></h1>
-        <p class="hero-desc">
-          CodeNova is a mobile coding and project-management application for Android.
-          Write code, structure your projects, and stay organized — directly from your device.
-        </p>
-        <div class="hero-actions">
-          <a href="about.html" class="btn btn-primary">Learn More</a>
-          <!-- Download button is shown only when APP_DOWNLOAD_URL is configured in script.js -->
-          <a href="#" class="btn btn-outline" id="download-btn" style="display:none" target="_blank" rel="noopener">
-            Get on Google Play
-          </a>
-        </div>
-      </div>
-    </section>
+                <svg viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2"
+                     stroke-linecap="round">
+                    <path d="M4 6h16"/>
+                    <path d="M4 12h16"/>
+                    <path d="M4 18h16"/>
+                </svg>
+            </button>
 
-    <hr class="divider" />
+            <nav aria-label="Main navigation">
+                <ul class="nav-menu" id="main-navigation">
+                    <li>
+                        <a class="nav-link" href="index.html"
+                           aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </nav>
 
-    <!-- ======================================================
-         FEATURES
-         ====================================================== -->
-    <section class="section" aria-labelledby="features-heading">
-      <div class="container">
-        <span class="section-label">Features</span>
-        <h2 class="section-title" id="features-heading">Everything you need to code on the go</h2>
-        <p class="section-subtitle">
-          CodeNova brings a focused coding environment and project-organization tools to your Android device.
-        </p>
-
-        <div class="features-grid">
-
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">📁</div>
-            <h3>Project Organization</h3>
-            <p>Keep your coding projects structured and accessible with a clean, file-based project manager.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">✏️</div>
-            <h3>Code Editor</h3>
-            <p>Write and edit source code with a mobile-friendly editor designed for comfortable on-screen input.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">📂</div>
-            <h3>File Management</h3>
-            <p>Create, rename, and organize files within your projects — all without leaving the app.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">📱</div>
-            <h3>Built for Android</h3>
-            <p>Designed from the ground up for mobile use — optimized for touch interaction and smaller screens.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">⚡</div>
-            <h3>Lightweight &amp; Fast</h3>
-            <p>A focused toolset keeps the app lean so it runs smoothly even on mid-range Android devices.</p>
-          </article>
-
-          <article class="feature-card">
-            <div class="feature-icon" aria-hidden="true">🔒</div>
-            <h3>Your Files, Your Control</h3>
-            <p>Work with project files stored on your device. Review our <a href="privacy-policy.html">Privacy Policy</a> for full details.</p>
-          </article>
+            <div class="nav-actions">
+                <!-- Add the real Play Store URL when the app is published. -->
+                <a class="btn btn-primary btn-sm"
+                   href="#download">
+                    Get the App
+                </a>
+            </div>
 
         </div>
-      </div>
-    </section>
+    </header>
 
-    <hr class="divider" />
 
-    <!-- ======================================================
-         CTA STRIP
-         ====================================================== -->
-    <section class="section--sm" aria-label="Call to action">
-      <div class="container text-center">
-        <h2>Ready to learn more?</h2>
-        <p style="margin-block: 0.75rem 1.5rem; color: var(--text-body);">
-          Read about the project, check our privacy commitments, or get in touch.
-        </p>
-        <div class="hero-actions">
-          <a href="about.html"           class="btn btn-primary">About CodeNova</a>
-          <a href="privacy-policy.html"  class="btn btn-outline">Privacy Policy</a>
-          <a href="contact.html"         class="btn btn-outline">Contact</a>
+    <main>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-grid">
+
+                <div class="hero-content">
+
+                    <span class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        Your coding companion
+                    </span>
+
+                    <h1>
+                        Your coding journey,
+                        <span class="gradient-text">in your pocket.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Meet Pocket Compiler, a mobile coding companion
+                        designed to make programming more accessible.
+                        Explore the app, learn about its features, and
+                        find the information you need in one place.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#download" class="btn btn-primary btn-lg">
+                            Explore the App
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </a>
+
+                        <a href="about.html"
+                           class="btn btn-secondary btn-lg">
+                            Learn More
+                        </a>
+                    </div>
+
+                    <p class="hero-note">
+                        Built for curious minds and aspiring programmers.
+                    </p>
+
+                </div>
+
+
+                <!-- Decorative Code Preview -->
+                <div class="hero-visual">
+
+                    <div class="code-window">
+
+                        <div class="code-window-header">
+                            <div class="window-dots" aria-hidden="true">
+                                <span class="window-dot"></span>
+                                <span class="window-dot"></span>
+                                <span class="window-dot"></span>
+                            </div>
+
+                            <span class="window-title">hello-world.cpp</span>
+                            <span class="badge">C++</span>
+                        </div>
+
+                        <div class="code-content">
+<code><span style="color:#7c3aed;">#include</span> <span style="color:#15803d;">&lt;iostream&gt;</span>
+
+<span style="color:#7c3aed;">int</span> main() {
+    std::cout &lt;&lt;
+        <span style="color:#15803d;">"Hello, World!"</span>
+        &lt;&lt; std::endl;
+
+    <span style="color:#7c3aed;">return</span> 0;
+}</code>
+                        </div>
+
+                        <div style="padding: 16px 22px;
+                                    border-top: 1px solid #e2e8f0;
+                                    background: #f8fafc;">
+
+                            <span style="color:#15803d;
+                                         font-size:0.85rem;
+                                         font-weight:700;">
+                                ● Example code
+                            </span>
+
+                            <p style="margin: 7px 0 0;
+                                      color:#64748b;
+                                      font-size:0.82rem;">
+                                A simple introduction to programming.
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Introduction -->
+        <section class="section">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Introducing Pocket Compiler</span>
+
+                    <h2>
+                        Programming made more approachable
+                    </h2>
+
+                    <p>
+                        Learning to code starts with having the right
+                        tools and a willingness to experiment. Pocket
+                        Compiler aims to make your coding journey
+                        convenient and accessible.
+                    </p>
+                </div>
+
+
+                <div class="grid grid-3">
+
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="1.8"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <rect x="5" y="2" width="14" height="20"
+                                      rx="2"/>
+                                <path d="M9 6h6"/>
+                                <path d="M10 18h4"/>
+                            </svg>
+                        </div>
+
+                        <h3>Mobile-first experience</h3>
+
+                        <p>
+                            Explore a coding experience designed around
+                            the convenience of a mobile device.
+                        </p>
+                    </article>
+
+
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="1.8"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <path d="m8 5-7 7 7 7"/>
+                                <path d="m16 5 7 7-7 7"/>
+                                <path d="m14 3-4 18"/>
+                            </svg>
+                        </div>
+
+                        <h3>Explore programming</h3>
+
+                        <p>
+                            Build your understanding of programming
+                            concepts and discover how code works.
+                        </p>
+                    </article>
+
+
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="1.8"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="9"/>
+                                <path d="M12 11v5"/>
+                                <path d="M12 7h.01"/>
+                            </svg>
+                        </div>
+
+                        <h3>Helpful information</h3>
+
+                        <p>
+                            Find app details, important policies, and
+                            support information whenever you need them.
+                        </p>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Features -->
+        <section class="section section-muted" id="features">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Explore the experience</span>
+
+                    <h2>
+                        Designed around your coding journey
+                    </h2>
+
+                    <p>
+                        A simple introduction to what Pocket Compiler
+                        represents and how it fits into your learning
+                        experience.
+                    </p>
+                </div>
+
+
+                <div class="grid grid-2">
+
+                    <article class="card">
+                        <span class="badge">01 · Accessibility</span>
+
+                        <h3>Keep learning within reach</h3>
+
+                        <p>
+                            A mobile-focused approach helps make
+                            programming resources more convenient to
+                            access during your day.
+                        </p>
+
+                        <ul class="feature-list">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>Explore programming on a mobile device.</span>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>Get familiar with coding concepts.</span>
+                            </li>
+                        </ul>
+                    </article>
+
+
+                    <article class="card">
+                        <span class="badge">02 · Simplicity</span>
+
+                        <h3>A straightforward experience</h3>
+
+                        <p>
+                            Discover an approachable environment for
+                            exploring code without unnecessary
+                            distractions.
+                        </p>
+
+                        <ul class="feature-list">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>Clear and accessible presentation.</span>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>Easy-to-navigate information.</span>
+                            </li>
+                        </ul>
+                    </article>
+
+
+                    <article class="card">
+                        <span class="badge">03 · Transparency</span>
+
+                        <h3>Understand the app</h3>
+
+                        <p>
+                            Find information about the application,
+                            its policies, and the available support
+                            options.
+                        </p>
+
+                        <a href="about.html" class="card-link">
+                            About Pocket Compiler
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+
+                    <article class="card">
+                        <span class="badge">04 · Support</span>
+
+                        <h3>Find the help you need</h3>
+
+                        <p>
+                            Access the website's support information
+                            and learn how to contact the developer
+                            with questions.
+                        </p>
+
+                        <a href="contact.html" class="card-link">
+                            Contact support
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="M5 12h14"/>
+                                <path d="m12 5 7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Getting Started -->
+        <section class="section">
+            <div class="container">
+
+                <div class="about-grid">
+
+                    <div>
+                        <span class="eyebrow">Getting started</span>
+
+                        <h2>
+                            Take the next step in your coding journey
+                        </h2>
+
+                        <p>
+                            Whether you are exploring programming for
+                            the first time or looking for a convenient
+                            mobile coding companion, start by learning
+                            more about Pocket Compiler.
+                        </p>
+
+                        <ul class="feature-list">
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>Discover the purpose of the app.</span>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>Review the available information and policies.</span>
+                            </li>
+                            <li>
+                                <span class="check-icon">✓</span>
+                                <span>Reach out through the support page.</span>
+                            </li>
+                        </ul>
+
+                        <div class="hero-actions mt-24">
+                            <a href="about.html" class="btn btn-primary">
+                                About the App
+                            </a>
+
+                            <a href="contact.html" class="btn btn-secondary">
+                                Get Support
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="about-visual">
+                        <div class="about-visual-inner">
+
+                            <div class="brand-logo" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none"
+                                     stroke="currentColor"
+                                     stroke-width="2"
+                                     stroke-linecap="round"
+                                     stroke-linejoin="round">
+                                    <path d="m8 5-7 7 7 7"/>
+                                    <path d="m16 5 7 7-7 7"/>
+                                    <path d="m14 3-4 18"/>
+                                </svg>
+                            </div>
+
+                            <h3>Small steps. Real progress.</h3>
+
+                            <p>
+                                Every programming journey starts
+                                with curiosity, practice, and a
+                                willingness to learn.
+                            </p>
+
+                            <div class="divider"></div>
+
+                            <span class="text-muted text-small">
+                                Your coding companion
+                            </span>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- FAQ -->
+        <section class="section section-muted" id="faq">
+            <div class="container">
+
+                <div class="section-heading">
+                    <span class="eyebrow">Frequently asked questions</span>
+
+                    <h2>
+                        Questions about Pocket Compiler?
+                    </h2>
+
+                    <p>
+                        Here are some general answers to help you
+                        learn more about the application.
+                    </p>
+                </div>
+
+
+                <div class="faq-list">
+
+                    <div class="faq-item">
+                        <button
+                            class="faq-question"
+                            type="button"
+                            aria-expanded="true"
+                            aria-controls="faq-answer-1">
+
+                            What is Pocket Compiler?
+
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+
+                        <div class="faq-answer" id="faq-answer-1">
+                            <p>
+                                Pocket Compiler is a mobile application
+                                focused on coding and programming.
+                                Check the app listing for its actual
+                                supported languages and features.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="faq-item">
+                        <button
+                            class="faq-question"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-2">
+
+                            Where can I download the app?
+
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+
+                        <div class="faq-answer" id="faq-answer-2" hidden>
+                            <p>
+                                When Pocket Compiler is published,
+                                its official Google Play Store listing
+                                will be the recommended download source.
+                                The download button will be updated
+                                with the real listing URL.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="faq-item">
+                        <button
+                            class="faq-question"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-3">
+
+                            How can I contact the developer?
+
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+
+                        <div class="faq-answer" id="faq-answer-3" hidden>
+                            <p>
+                                Visit the
+                                <a href="contact.html">Contact page</a>
+                                for support information. Make sure the
+                                published page contains a real, working
+                                contact method.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="faq-item">
+                        <button
+                            class="faq-question"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-4">
+
+                            Where can I read the Privacy Policy?
+
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+
+                        <div class="faq-answer" id="faq-answer-4" hidden>
+                            <p>
+                                You can read the
+                                <a href="privacy-policy.html">
+                                    Privacy Policy
+                                </a>
+                                to understand the application's
+                                applicable privacy practices.
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="faq-item">
+                        <button
+                            class="faq-question"
+                            type="button"
+                            aria-expanded="false"
+                            aria-controls="faq-answer-5">
+
+                            How do I get help with a problem?
+
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor" stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round"
+                                 aria-hidden="true">
+                                <path d="m6 9 6 6 6-6"/>
+                            </svg>
+                        </button>
+
+                        <div class="faq-answer" id="faq-answer-5" hidden>
+                            <p>
+                                Visit the Contact page and use the
+                                available support method. Please do not
+                                include passwords or other sensitive
+                                information in support messages.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Download CTA -->
+        <section class="cta-section" id="download">
+            <div class="container">
+
+                <div class="cta-card">
+
+                    <span class="eyebrow">
+                        Start exploring
+                    </span>
+
+                    <h2>
+                        Ready to discover Pocket Compiler?
+                    </h2>
+
+                    <p>
+                        Learn about the app, review its policies,
+                        and find the information you need to get started.
+                    </p>
+
+                    <!-- Replace this button with the official Play Store URL
+                         after the application is published. -->
+                    <a href="about.html" class="btn btn-primary btn-lg">
+                        Discover the App
+                    </a>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a class="brand" href="index.html">
+                        <span class="brand-logo" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none"
+                                 stroke="currentColor"
+                                 stroke-width="2"
+                                 stroke-linecap="round"
+                                 stroke-linejoin="round">
+                                <path d="m8 5-7 7 7 7"/>
+                                <path d="m16 5 7 7-7 7"/>
+                                <path d="m14 3-4 18"/>
+                            </svg>
+                        </span>
+
+                        <span class="brand-text">
+                            Pocket Compiler
+                            <small>Your coding companion</small>
+                        </span>
+                    </a>
+
+                    <p class="footer-brand-description">
+                        The official website for Pocket Compiler.
+                        Find app information, support resources,
+                        and important policies in one place.
+                    </p>
+
+                </div>
+
+
+                <div>
+                    <h3 class="footer-heading">Explore</h3>
+
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#faq">FAQs</a></li>
+                    </ul>
+                </div>
+
+
+                <div>
+                    <h3 class="footer-heading">Support</h3>
+
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#download">Get the App</a></li>
+                    </ul>
+                </div>
+
+
+                <div>
+                    <h3 class="footer-heading">Legal</h3>
+
+                    <ul class="footer-links">
+                        <li>
+                            <a href="privacy-policy.html">
+                                Privacy Policy
+                            </a>
+                        </li>
+                        <li>
+                            <a href="terms.html">
+                                Terms &amp; Conditions
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+            <div class="footer-bottom">
+
+                <p>
+                    &copy; <span data-current-year></span>
+                    Pocket Compiler. All rights reserved.
+                </p>
+
+                <div class="footer-legal-links">
+                    <a href="privacy-policy.html">Privacy</a>
+                    <a href="terms.html">Terms</a>
+                    <a href="contact.html">Support</a>
+                </div>
+
+            </div>
+
         </div>
-      </div>
-    </section>
 
-  </main>
+    </footer>
 
-  <!-- ======================================================
-       FOOTER
-       ====================================================== -->
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-inner">
-        <a href="index.html" class="footer-logo">
-          <span class="logo-icon" aria-hidden="true">CN</span>
-          CodeNova
-        </a>
-
-        <ul class="footer-links">
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms &amp; Conditions</a></li>
-        </ul>
-
-        <p class="footer-copy">
-          &copy; <span id="copyright-year">2024</span> CodeNova. All rights reserved.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="assets/js/script.js"></script>
 </body>
 </html>
+```
