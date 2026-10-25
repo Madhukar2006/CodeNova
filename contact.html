@@ -1,113 +1,364 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact — CodeNova</title>
-  <meta name="description" content="Contact the CodeNova developer with questions, feedback, or support requests." />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta property="og:title"       content="Contact — CodeNova" />
-  <meta property="og:description" content="Get in touch with the CodeNova development team." />
-  <meta property="og:type"        content="website" />
+  <title>Contact Us | Pocket Compiler</title>
+  <meta
+    name="description"
+    content="Contact the Pocket Compiler team for app support, feedback, questions, or suggestions."
+  >
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://YOUR-DOMAIN/contact.html">
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233b82f6'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-weight='700' font-size='16' fill='white'>CN</text></svg>" />
+  <link rel="icon" type="image/png" href="assets/images/favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet" />
-
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <script src="assets/js/script.js" defer></script>
 </head>
+
 <body>
 
-  <nav class="site-nav" aria-label="Main navigation">
-    <div class="nav-inner">
-      <a href="index.html" class="nav-logo" aria-label="CodeNova home">
-        <span class="logo-icon" aria-hidden="true">CN</span>
-        <span class="logo-text">Code<span>Nova</span></span>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container nav-container">
+
+      <a href="index.html" class="brand" aria-label="Pocket Compiler Home">
+        <span class="brand-logo" aria-hidden="true">P</span>
+        <span class="brand-text">Pocket Compiler</span>
       </a>
-      <button class="nav-toggle" id="nav-toggle" aria-controls="nav-links" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Toggle navigation"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
-      <ul class="nav-links" id="nav-links" role="list">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="privacy-policy.html">Privacy</a></li>
-        <li><a href="terms.html">Terms</a></li>
-      </ul>
+
+      <nav class="nav-menu" id="primary-navigation" aria-label="Main navigation">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link active" aria-current="page">Contact</a>
+        <a href="privacy-policy.html" class="nav-link">Privacy</a>
+        <a href="terms.html" class="nav-link">Terms</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="index.html#download" class="btn btn-primary btn-sm">
+          Get the App
+        </a>
+      </div>
+
     </div>
-  </nav>
+  </header>
+
 
   <main>
 
-    <header class="page-header">
+    <!-- Page Hero -->
+    <section class="page-hero">
       <div class="container">
-        <h1>Contact</h1>
-        <p>Have a question, found a bug, or want to share feedback? We would love to hear from you.</p>
+
+        <div class="breadcrumbs">
+          <a href="index.html">Home</a>
+          <span aria-hidden="true">/</span>
+          <span>Contact Us</span>
+        </div>
+
+        <span class="eyebrow">We're here to help</span>
+
+        <h1>
+          Let's talk about
+          <span class="gradient-text">Pocket Compiler.</span>
+        </h1>
+
+        <p class="hero-description max-w-lg">
+          Have a question, found an issue, or want to share an idea?
+          We'd love to hear from you. Reach out to us using the contact
+          options below.
+        </p>
+
       </div>
-    </header>
+    </section>
 
-    <section class="section" aria-label="Contact information">
+
+    <!-- Contact Section -->
+    <section class="section">
       <div class="container">
 
-        <div class="contact-card">
-          <h2 style="margin-bottom:0.75rem; font-size:1.15rem;">Get in Touch</h2>
+        <div class="grid grid-2">
 
-          <p>
-            The best way to reach the CodeNova developer is by email.
-            Tap the button below to open your email app with the address pre-filled.
-          </p>
+          <!-- Contact Information -->
+          <div class="card">
 
-          <p class="text-sm" style="color:var(--text-muted); margin-bottom:1.25rem;">
-            Contact email:
-            <strong style="color:var(--text-body); font-family:var(--font-mono)" id="contact-email-display"></strong>
-          </p>
+            <span class="eyebrow">Get in touch</span>
 
-          <!-- Shown only when CONTACT_EMAIL is configured in assets/js/script.js -->
-          <a
-            href="#"
-            class="btn btn-primary"
-            id="contact-email-btn"
-            style="display:none"
-            aria-label="Send email to CodeNova developer"
-          >
-            ✉ Send an Email
-          </a>
+            <h2>How can we help?</h2>
 
-          <!-- Shown when CONTACT_EMAIL is NOT configured -->
-          <div class="contact-no-email" id="contact-no-email" style="display:none" role="status">
-            <strong>Developer action required:</strong> A contact email address has not been
-            configured yet. Open <code>assets/js/script.js</code> and set
-            <code>CONTACT_EMAIL</code> to your real email address to enable this button.
+            <p class="text-muted">
+              Whether you need help using the app or want to share feedback,
+              please provide enough detail so we can better understand your
+              request.
+            </p>
+
+            <div class="divider"></div>
+
+            <div class="contact-detail">
+              <div class="card-icon" aria-hidden="true">✉</div>
+
+              <div>
+                <h3>Email Support</h3>
+                <p class="text-muted">
+                  For app-related questions, feedback, or support requests.
+                </p>
+
+                <!-- Replace the placeholder with your real support email. -->
+                <p>
+                  <strong>Add your support email here</strong>
+                </p>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="contact-detail">
+              <div class="card-icon" aria-hidden="true">💬</div>
+
+              <div>
+                <h3>Feedback & Suggestions</h3>
+                <p class="text-muted">
+                  Have an idea that could improve Pocket Compiler?
+                  Tell us what you'd like to see in a future update.
+                </p>
+              </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="contact-detail">
+              <div class="card-icon" aria-hidden="true">🛠</div>
+
+              <div>
+                <h3>Report a Problem</h3>
+                <p class="text-muted">
+                  If something isn't working as expected, describe the issue,
+                  what you were doing, and what happened.
+                </p>
+              </div>
+            </div>
+
+            <div class="notice mt-24">
+              <strong>Helpful tip:</strong>
+              Please don't include passwords, payment details, or other
+              sensitive personal information in your message.
+            </div>
+
+          </div>
+
+
+          <!-- Contact Form -->
+          <div class="card">
+
+            <span class="eyebrow">Send a message</span>
+
+            <h2>Contact our team</h2>
+
+            <p class="text-muted">
+              Fill in the details below to prepare your message.
+            </p>
+
+            <form id="contact-form">
+
+              <div class="form-group">
+                <label for="name">Your name</label>
+
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Enter your name"
+                  autocomplete="name"
+                  required
+                  minlength="2"
+                  maxlength="100"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email address</label>
+
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="you@example.com"
+                  autocomplete="email"
+                  required
+                  maxlength="254"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+
+                <select id="subject" name="subject" required>
+                  <option value="">Choose a topic</option>
+                  <option value="App Support">App Support</option>
+                  <option value="Bug Report">Report a Problem</option>
+                  <option value="Feedback">Feedback or Suggestion</option>
+                  <option value="Privacy Question">Privacy Question</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="message">Your message</label>
+
+                <textarea
+                  id="message"
+                  name="message"
+                  rows="6"
+                  placeholder="Tell us how we can help..."
+                  required
+                  minlength="10"
+                  maxlength="5000"
+                ></textarea>
+              </div>
+
+              <p class="text-small text-muted">
+                Please don't include passwords or other sensitive information.
+                Read our
+                <a href="privacy-policy.html">Privacy Policy</a>
+                to learn how personal information is handled.
+              </p>
+
+              <button type="submit" class="btn btn-primary btn-lg">
+                Prepare Message
+              </button>
+
+              <p
+                id="form-status"
+                class="text-small mt-24"
+                role="status"
+                aria-live="polite"
+              ></p>
+
+            </form>
+
+            <p class="text-small text-muted mt-24">
+              Note: This form needs to be connected to a real form service
+              or backend before it can deliver messages. The current page
+              alone does not send your message to us.
+            </p>
+
           </div>
 
         </div>
 
-        <!-- Noscript fallback -->
-        <noscript>
-          <div class="contact-card" style="margin-top:1rem;">
-            <p>
-              JavaScript is disabled. To contact the CodeNova developer, please check
-              the <a href="about.html">About page</a> for any available contact details,
-              or configure a visible email address in your website files.
-            </p>
-          </div>
-        </noscript>
+      </div>
+    </section>
 
-        <div class="prose" style="margin-top: 2.5rem; max-width: 520px;">
-          <h2 style="margin-top:0">What to include</h2>
-          <ul>
-            <li>Your Android version and device model, if reporting a bug.</li>
-            <li>A clear description of the issue or question.</li>
-            <li>Steps to reproduce any unexpected behaviour.</li>
-          </ul>
 
-          <p class="text-sm" style="margin-top:1.5rem;">
-            By contacting us you acknowledge our
-            <a href="privacy-policy.html">Privacy Policy</a> and
-            <a href="terms.html">Terms &amp; Conditions</a>.
+    <!-- FAQ Section -->
+    <section class="section section-muted">
+      <div class="container">
+
+        <div class="section-heading">
+          <span class="eyebrow">Quick answers</span>
+          <h2>Before you contact us</h2>
+          <p class="text-muted">
+            These answers may help you find what you need more quickly.
           </p>
+        </div>
+
+        <div class="faq-list">
+
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              type="button"
+              aria-expanded="false"
+              aria-controls="contact-faq-1"
+            >
+              How do I report an app issue?
+            </button>
+
+            <div class="faq-answer" id="contact-faq-1" hidden>
+              Describe the problem, the steps that led to it, and any
+              error message you received. Avoid sharing passwords or
+              sensitive information.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              type="button"
+              aria-expanded="false"
+              aria-controls="contact-faq-2"
+            >
+              Can I suggest a new feature?
+            </button>
+
+            <div class="faq-answer" id="contact-faq-2" hidden>
+              Yes. Choose Feedback or Suggestion in the contact form and
+              explain how the proposed feature would help you.
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button
+              class="faq-question"
+              type="button"
+              aria-expanded="false"
+              aria-controls="contact-faq-3"
+            >
+              How is my contact information used?
+            </button>
+
+            <div class="faq-answer" id="contact-faq-3" hidden>
+              Contact information should only be handled according to the
+              actual practices of the app developer. Please read the
+              <a href="privacy-policy.html">Privacy Policy</a>
+              for the details applicable to Pocket Compiler.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- CTA -->
+    <section class="cta-section">
+      <div class="container">
+
+        <div class="cta-card">
+          <span class="eyebrow">Explore Pocket Compiler</span>
+
+          <h2>Ready to continue coding?</h2>
+
+          <p>
+            Return to the Pocket Compiler homepage to learn more about
+            the app and its features.
+          </p>
+
+          <div class="hero-actions">
+            <a href="index.html" class="btn btn-primary">
+              Back to Home
+            </a>
+
+            <a href="about.html" class="btn btn-secondary">
+              About Pocket Compiler
+            </a>
+          </div>
         </div>
 
       </div>
@@ -115,24 +366,60 @@
 
   </main>
 
+
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-inner">
-        <a href="index.html" class="footer-logo">
-          <span class="logo-icon" aria-hidden="true">CN</span>
-          CodeNova
-        </a>
-        <ul class="footer-links">
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-          <li><a href="privacy-policy.html">Privacy Policy</a></li>
-          <li><a href="terms.html">Terms &amp; Conditions</a></li>
-        </ul>
-        <p class="footer-copy">&copy; <span id="copyright-year">2024</span> CodeNova. All rights reserved.</p>
+
+      <div class="footer-main">
+
+        <div class="footer-brand">
+          <a href="index.html" class="brand">
+            <span class="brand-logo" aria-hidden="true">P</span>
+            <span class="brand-text">Pocket Compiler</span>
+          </a>
+
+          <p class="footer-brand-description">
+            Your coding companion, designed to make learning and
+            practicing programming more accessible.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Explore</h3>
+
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-heading">Legal</h3>
+
+          <ul class="footer-links">
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms &amp; Conditions</a></li>
+          </ul>
+        </div>
+
       </div>
+
+      <div class="footer-bottom">
+        <p>
+          &copy; <span data-current-year></span> Pocket Compiler.
+          All rights reserved.
+        </p>
+
+        <div class="footer-legal-links">
+          <a href="privacy-policy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+        </div>
+      </div>
+
     </div>
   </footer>
 
-  <script src="assets/js/script.js"></script>
 </body>
 </html>
